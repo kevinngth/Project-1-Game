@@ -44,6 +44,10 @@ Game mechanics (MVP)
 Using bootstrap, a lot of the styles are predetermined and altering one element's class leads to affect another's eventual positioning. Initially wanted to have a masonry styled layout but had difficulty trying to decentralise the alignment. Subsequently realised that instead of 4 different cards, I can have 2 cards in 1 column and another 2 cards in the other column, then change the display for the element that I wanted to be off-center.
 
 Bootstrap was also challenging in the sense that I had to figure out the class attribute that was directly affecting the parameter I wanted to change e.g. margin. It was difficult to see at first but eventually I got the hang of it.
+
+* JavaScript
+Trying to get hold of the object and passing values to and fro the object source rather than to pass and create values derived from another source not directly linked to the object source. Overcame the problem by tapping into the node family tree via devTools.
+
 ### Unsolved problems
 * Using JS DOM without ruining the layout
 I didn't manage to figure out how to generate cards from JS using DOM without ruining the layout preset by my HTML. In the end I worked around it by setting the cards to visibility: hidden and using JS DOM to switch it to visibility: visible when the content in the cards are generated.

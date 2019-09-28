@@ -1,0 +1,21 @@
+/*Recommeded to play at 80% of full screen on chrome*/
+
+body {
+	background-image: url(img/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h3 {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+
+.jumbotron {
+	margin: 0 0 .5rem 0;
+	padding: 1rem;
+}
+
+.input-group {
+	width: 52.5%;
+}

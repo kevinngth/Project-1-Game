@@ -35,7 +35,13 @@ Game mechanics (MVP)
 * 
 
 ### Technologies
+* Bootstrap 4.3.1
+
 ### Approach
 ### Installation instructions
 ### Challenges
+* Bootstrap
+Using bootstrap, a lot of the styles are predetermined and altering one element's class leads to affect another's eventual positioning. Initially wanted to have a masonry styled layout but had difficulty trying to decentralise the alignment. Subsequently realised that instead of 4 different cards, I can have 2 cards in 1 column and another 2 cards in the other column, then change the display for the element that I wanted to be off-center.
+
+Bootstrap was also challenging in the sense that I had to figure out the class attribute that was directly affecting the parameter I wanted to change e.g. margin. It was difficult to see at first but eventually I got the hang of it.
 ### Unsolved problems

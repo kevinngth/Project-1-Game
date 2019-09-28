@@ -336,8 +336,19 @@
                 <div class="mt-auto">
                     <h3 class="bg-warning text-dark rounded text-center">Status</h3>
                     <div class="jumbotron">
-                        <h4 class="d-flex justify-content-between align-items-center">Day: 5<button class="btn btn-success btn-lg">Next</button></h4>
-                        <h4 class="d-flex justify-content-between"><span>Money:</span><span>1000$</span></h4>
+                        <h4 class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Day: </span>
+                                <span id="dayCount">0</span>
+                            </div>
+                            <button class="btn btn-success btn-lg" id="next">Next</button>
+                        </h4>
+                        <h4 class="d-flex justify-content-between">
+                            <span>Money:</span>
+                            <div>
+                                <span id="money">1000</span><span>$</span>
+                            </div>
+                        </h4>
                     </div>
                 </div>
             </div>

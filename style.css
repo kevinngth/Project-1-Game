@@ -1,4 +1,4 @@
-/*Recommeded to play at 80% of full screen on chrome*/
+/*Recommeded to play at 80% or 90% of full screen on chrome*/
 
 body {
 	background-image: url(img/background.jpg);
@@ -9,21 +9,6 @@ body {
 h3 {
 	margin-top: .5rem;
 	margin-bottom: .5rem;
-}
-.buyZone {
-	border: 1px solid red;
-}
-
-.inventory {
-	border: 1px solid red;
-}
-
-.sellZone {
-	border: 1px solid red;
-}
-
-.stats {
-	border: 1px solid red;
 }
 
 .jumbotron {

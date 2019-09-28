@@ -10,6 +10,21 @@ h3 {
 	margin-top: .5rem;
 	margin-bottom: .5rem;
 }
+.buyZone {
+	border: 1px solid red;
+}
+
+.inventory {
+	border: 1px solid red;
+}
+
+.sellZone {
+	border: 1px solid red;
+}
+
+.stats {
+	border: 1px solid red;
+}
 
 .jumbotron {
 	margin: 0 0 .5rem 0;
@@ -18,4 +33,8 @@ h3 {
 
 .input-group {
 	width: 52.5%;
+}
+
+.mt-auto {
+	width: 100%;
 }

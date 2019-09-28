@@ -6,12 +6,13 @@
     <title>Project 1</title>
 </head>
 <body>
+<!-- Overall container -->
     <div class="container">
+<!-- Overall row -->
         <div class="row">
-
-
-
-            <div class="col-lg-8 buyZone">
+<!-- Start left side of screen should occupy 8/12 -->
+            <div class="col-lg-8">
+<!-- Area where the buying happens -->
                 <h3 class="bg-warning text-dark rounded text-center">Marketplace</h3>
                 <div class="jumbotron">
                     <div class="row card-deck">
@@ -53,123 +54,8 @@
 
                     </div>
                 </div>
-            </div>
-
-
-
-            <div class="col-lg-4 inventory">
-                <h3 class="bg-warning text-dark rounded text-center">Inventory</h3>
-
-                <div class="jumbotron">
-                    <h4 class="d-flex justify-content-between">
-                        <a href="#gunContent" data-toggle="collapse">Gun</a>
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Price">
-                            <div class="input-group-append">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Sell</button>
-                            </div>
-                        </div>
-                    </h4>
-                    <div id="gunContent" class="collapse in">
-                        <ul>
-                            <li>Bought on Day 2</li>
-                            <li>Bought for 300$</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="jumbotron">
-                    <h4 class="d-flex justify-content-between">
-                        <a href="#walnutContent" data-toggle="collapse">Walnut</a>
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Price">
-                            <div class="input-group-append">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Sell</button>
-                            </div>
-                        </div>
-                    </h4>
-                    <div id="walnutContent" class="collapse in">
-                        <ul>
-                            <li>Bought on Day 2</li>
-                            <li>Bought for 300$</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="jumbotron">
-                    <h4 class="d-flex justify-content-between">
-                        <a href="#walnutContent" data-toggle="collapse">Walnut</a>
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Price">
-                            <div class="input-group-append">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Sell</button>
-                            </div>
-                        </div>
-                    </h4>
-                    <div id="walnutContent" class="collapse in">
-                        <ul>
-                            <li>Bought on Day 2</li>
-                            <li>Bought for 300$</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="jumbotron">
-                    <h4 class="d-flex justify-content-between">
-                        <a href="#walnutContent" data-toggle="collapse">Walnut</a>
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Price">
-                            <div class="input-group-append">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Sell</button>
-                            </div>
-                        </div>
-                    </h4>
-                    <div id="walnutContent" class="collapse in">
-                        <ul>
-                            <li>Bought on Day 2</li>
-                            <li>Bought for 300$</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="jumbotron">
-                    <h4 class="d-flex justify-content-between">
-                        <a href="#walnutContent" data-toggle="collapse">Walnut</a>
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Price">
-                            <div class="input-group-append">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Sell</button>
-                            </div>
-                        </div>
-                    </h4>
-                    <div id="walnutContent" class="collapse in">
-                        <ul>
-                            <li>Bought on Day 2</li>
-                            <li>Bought for 300$</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div class="col-lg-8 sellZone">
+<!-- Area where the buying stops -->
+<!-- Area where the selling happens -->
                 <h3 class="bg-warning text-dark rounded text-center">Your Shop</h3>
                 <div class="jumbotron">
                     <div class="row card-deck">
@@ -210,23 +96,203 @@
 
                     </div>
                 </div>
+<!-- Area where the selling stops -->
             </div>
+<!-- End of the left side of screen -->
+<!-- Start of right side of screen occupying 4/12 -->
+            <div class="col-lg-4 d-flex align-items-start flex-column">
+<!-- Inventory panel starts -->
+                <div>
+                    <h3 class="bg-warning text-dark rounded text-center">Inventory</h3>
+                    <div class="accordion" id="inventory">
+<!-- Start of card 1 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#trap">Trap
+                                    </button>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                        </div>
+                                    </div>
+                                </h2>
+                            </div>
 
+                            <div id="trap" class="collapse" data-parent="#inventory">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Bought on Day 2</li>
+                                        <li>Bought for 300$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+<!-- End of card 1 -->
+<!-- Start of card 2 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#gun">Gun
+                                    </button>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                        </div>
+                                    </div>
+                                </h2>
+                            </div>
 
+                            <div id="gun" class="collapse" data-parent="#inventory">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Bought on Day 2</li>
+                                        <li>Bought for 300$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+<!-- End of card 2 -->
+<!-- Start of card 3 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#goose">Goose
+                                    </button>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                        </div>
+                                    </div>
+                                </h2>
+                            </div>
 
-            <div class="col-lg-4 stats">
-                <h3 class="bg-warning text-dark rounded text-center">Status</h3>
-                <div class="jumbotron">
-                    <h4 class="d-flex justify-content-between align-items-center">Day: 5<button class="btn btn-success btn-lg">Next</button></h4>
-                    <h4 class="d-flex justify-content-between"><span>Money:</span><span>1000$</span></h4>
+                            <div id="goose" class="collapse" data-parent="#inventory">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Bought on Day 2</li>
+                                        <li>Bought for 300$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+<!-- End of card 3 -->
+<!-- Start of card 4 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#walnut">Walnut
+                                    </button>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                        </div>
+                                    </div>
+                                </h2>
+                            </div>
+
+                            <div id="walnut" class="collapse" data-parent="#inventory">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Bought on Day 2</li>
+                                        <li>Bought for 300$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+<!-- End of card 4 -->
+<!-- Start of card 5 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#mountain">Mountain
+                                    </button>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                        </div>
+                                    </div>
+                                </h2>
+                            </div>
+
+                            <div id="mountain" class="collapse" data-parent="#inventory">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Bought on Day 2</li>
+                                        <li>Bought for 300$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+<!-- End of card 5 -->
+<!-- Start of card 6 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#tap">Tap
+                                    </button>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                        </div>
+                                    </div>
+                                </h2>
+                            </div>
+
+                            <div id="tap" class="collapse" data-parent="#inventory">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Bought on Day 2</li>
+                                        <li>Bought for 300$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+<!-- End of card 6 -->
+                    </div>
+                </div>
+<!-- Inventory panel ends -->
+<!-- Status panel starts -->
+                <div class="mt-auto">
+                    <h3 class="bg-warning text-dark rounded text-center">Status</h3>
+                    <div class="jumbotron">
+                        <h4 class="d-flex justify-content-between align-items-center">Day: 5<button class="btn btn-success btn-lg">Next</button></h4>
+                        <h4 class="d-flex justify-content-between"><span>Money:</span><span>1000$</span></h4>
+                    </div>
                 </div>
             </div>
+<!-- End of the right side of screen -->
         </div>
     </div>
-
+<!-- Preset bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- My own JS -->
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

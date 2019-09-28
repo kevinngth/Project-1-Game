@@ -51,3 +51,5 @@ Trying to get hold of the object and passing values to and fro the object source
 ### Unsolved problems
 * Using JS DOM without ruining the layout
 I didn't manage to figure out how to generate cards from JS using DOM without ruining the layout preset by my HTML. In the end I worked around it by setting the cards to visibility: hidden and using JS DOM to switch it to visibility: visible when the content in the cards are generated.
+
+That being said, I would like to improve on the way the inventory list is being added on to. 

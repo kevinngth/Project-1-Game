@@ -82,15 +82,15 @@ const generateItem = () => {
     document.querySelector('#item1price').innerHTML = ayogado.buyingPrice;
     document.querySelector('#item1buy').value = ayogado.buyingPrice;
     ayogado.toggleInPlay();
-}
+};
 
-// // // // // // // // item buying mechanics // // // // // // // //
+// // // // // // // // item buying & inventory mechanics // // // // // // // //
 
 const makePurchase = () => {
-// hide the card
+// hide bought card
     event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
-// make inventory card visible
-    document.querySelector('#inventory1Visibility').style.visibility = 'visible';
+// show inventory card
+    document.querySelector('#inventory1Display').style.display = 'flex';
 // grab hold of the object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
 // deduct the money used
@@ -100,9 +100,24 @@ const makePurchase = () => {
     document.querySelector('#inventory1').innerHTML = object.name;
     document.querySelector('#dateBought1').innerHTML = dayCount;
     document.querySelector('#buyingPrice1').innerHTML = object.buyingPrice;
-    console.log('HI!');
-}
+};
 
 document.querySelector('#item1buy').addEventListener('click', makePurchase);
 
+// // // // // // // // item selling & inventory mechanics // // // // // // // //
+
+const sellItem = () => {
+// hide inventory card
+    document.querySelector('#inventory1Display').style.display = 'none';
+// get object
+
+// get input value
+    console.log(document.querySelector('#item1sellPrice').value);
+// show selling card
+    // document.querySelector('')
+};
+
+document.querySelector('#item1sell').addEventListener('click', sellItem);
+
+// // // // // // // // others // // // // // // // //
 generateItem();

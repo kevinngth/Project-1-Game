@@ -107,22 +107,22 @@
 <!-- Start of right side of screen occupying 4/12 -->
             <div class="col-lg-4 d-flex align-items-start flex-column">
 <!-- Inventory panel starts -->
-                <div>
+                <div style="width: 100%;">
                     <h3 class="bg-warning text-dark rounded text-center">Inventory</h3>
                     <div class="accordion" id="inventory">
 <!-- Start of card 1 -->
-                        <div class="card" style="visibility: hidden;" id="inventory1Visibility">
+                        <div class="card" style="display: none;" id="inventory1Display">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
                                     <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory1target" id="inventory1">
                                     </button>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" placeholder="Price">
+                                        <input type="number" class="form-control" placeholder="Price" id="item1sellPrice">
                                         <div class="input-group-append">
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item1sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
@@ -142,7 +142,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#gun">Gun
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory2target" id="inventory2">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -150,13 +150,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item2sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="gun" class="collapse" data-parent="#inventory">
+                            <div id="inventory2target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought2"></span></li>
@@ -170,7 +170,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#goose">Goose
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory3target" id="inventory3">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -178,13 +178,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item3sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="goose" class="collapse" data-parent="#inventory">
+                            <div id="inventory3target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought3"></span></li>
@@ -198,7 +198,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#walnut">Walnut
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory4target" id="inventory4">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -206,13 +206,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item4sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="walnut" class="collapse" data-parent="#inventory">
+                            <div id="inventory4target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought4"></span></li>
@@ -226,7 +226,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#mountain">Mountain
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory5target" id="inventory5">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -234,13 +234,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item5sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="mountain" class="collapse" data-parent="#inventory">
+                            <div id="inventory5target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought5"></span></li>
@@ -254,7 +254,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#tap">Tap
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory6target" id="inventory6">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -262,13 +262,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item6sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="tap" class="collapse" data-parent="#inventory">
+                            <div id="inventory6target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought6"></span></li>
@@ -282,7 +282,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#ayogado">Ayogado
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory7target" id="inventory7">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -290,13 +290,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item7sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="ayogado" class="collapse" data-parent="#inventory">
+                            <div id="inventory7target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought7"></span></li>
@@ -310,7 +310,7 @@
                         <div class="card" style="display: none;">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#goggles">Goggles
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#inventory8target" id="inventory8">
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -318,13 +318,13 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Sell</button>
+                                            <button id="item8sell" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
                                 </h2>
                             </div>
 
-                            <div id="goggles" class="collapse" data-parent="#inventory">
+                            <div id="inventory8target" class="collapse" data-parent="#inventory">
                                 <div class="card-body">
                                     <ul>
                                         <li>Bought on Day <span id="dateBought8"></span></li>

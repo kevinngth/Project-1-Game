@@ -16,22 +16,27 @@
                 <h3 class="bg-warning text-dark rounded text-center">Marketplace</h3>
                 <div class="jumbotron">
                     <div class="row card-deck">
-
-
-                        <div class="card" style="width: 9rem;">
+<!-- Buying item 1 -->
+                        <div class="card" style="width: 9rem; visibility: hidden;" id="buy1">
                             <div class="card-header text-center">
-                                <h6 class="card-title">Goose</h6>
+                                <h6 class="card-title capitalize" id="item1name">Goose</h6>
                             </div>
-                            <img src="img/goose.jpg" class="card-img-top">
+                            <img src="img/goose.jpg" class="card-img-top" id="item1img">
                             <div class="card-body">
-                                <div class="card-text d-flex justify-content-between">300 $ <button class="btn btn-danger btn-sm">Buy</button>
+                                <div class="card-text d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span id="item1price">300</span>
+                                        <span>$</span>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm">Buy</button>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="card" style="width: 9rem;">
+<!-- End buying item 1 -->
+<!-- Buying item 2 -->
+                        <div class="card" style="width: 9rem; visibility: hidden;" id="buy2">
                             <div class="card-header text-center">
-                                <h6 class="card-title">Gun</h6>
+                                <h6 class="card-title capitalize" id="item2name">Gun</h6>
                             </div>
                             <img src="img/gun.jpg" class="card-img-top">
                             <div class="card-body">
@@ -39,10 +44,11 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="card" style="width: 9rem;">
+<!-- End buying item 2 -->
+<!-- Buying item 3 -->
+                        <div class="card" style="width: 9rem; visibility: hidden;" id="buy3">
                             <div class="card-header text-center">
-                                <h6 class="card-title">Trap</h6>
+                                <h6 class="card-title capitalize" id="item3name">Trap</h6>
                             </div>
                             <img src="img/trap.png" class="card-img-top">
                             <div class="card-body">
@@ -50,8 +56,7 @@
                                 </div>
                             </div>
                         </div>
-
-
+<!-- End buying item 3 -->
                     </div>
                 </div>
 <!-- Area where the buying stops -->
@@ -63,7 +68,7 @@
 
                         <div class="card" style="width: 9rem;">
                             <div class="card-header text-center">
-                                <h6 class="card-title">Hazelnut</h6>
+                                <h6 class="card-title capitalize">Hazelnut</h6>
                             </div>
                             <img src="img/hazelnut.jpg" class="card-img-top">
                             <div class="card-body">
@@ -74,7 +79,7 @@
 
                         <div class="card" style="width: 9rem;">
                             <div class="card-header text-center">
-                                <h6 class="card-title">Mountain</h6>
+                                <h6 class="card-title capitalize">Mountain</h6>
                             </div>
                             <img src="img/mountain.jpg" class="card-img-top">
                             <div class="card-body">
@@ -85,7 +90,7 @@
 
                         <div class="card" style="width: 9rem;">
                             <div class="card-header text-center">
-                                <h6 class="card-title">Tap</h6>
+                                <h6 class="card-title capitalize">Tap</h6>
                             </div>
                             <img src="img/tap.jpg" class="card-img-top">
                             <div class="card-body">
@@ -109,7 +114,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#trap">Trap
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#trap">Trap
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -137,7 +142,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#gun">Gun
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#gun">Gun
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -165,7 +170,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#goose">Goose
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#goose">Goose
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -193,7 +198,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#walnut">Walnut
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#walnut">Walnut
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -221,7 +226,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#mountain">Mountain
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#mountain">Mountain
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -249,7 +254,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#tap">Tap
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#tap">Tap
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -277,7 +282,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#ayogado">Ayogado
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#ayogado">Ayogado
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">
@@ -305,7 +310,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="mb-0 d-flex justify-content-between">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#goggles">Goggles
+                                    <button class="btn btn-link capitalize" type="button" data-toggle="collapse" data-target="#goggles">Goggles
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price">

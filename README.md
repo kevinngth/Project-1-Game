@@ -45,3 +45,5 @@ Using bootstrap, a lot of the styles are predetermined and altering one element'
 
 Bootstrap was also challenging in the sense that I had to figure out the class attribute that was directly affecting the parameter I wanted to change e.g. margin. It was difficult to see at first but eventually I got the hang of it.
 ### Unsolved problems
+* Using JS DOM without ruining the layout
+I didn't manage to figure out how to generate cards from JS using DOM without ruining the layout preset by my HTML. In the end I worked around it by setting the cards to visibility: hidden and using JS DOM to switch it to visibility: visible when the content in the cards are generated.

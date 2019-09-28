@@ -23,3 +23,7 @@ h3 {
 .mt-auto {
 	width: 100%;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}

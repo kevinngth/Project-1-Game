@@ -23,7 +23,7 @@ const checkShop = () => {
     for (let i=1; i<=3; i++) {
         if (document.querySelector(`#s${i}`).style.visibility !== 'hidden') {
 // grab the object
-            let object = eval(document.querySelector(`#s${1}Name`).innerHTML);
+            let object = eval(document.querySelector(`#s${i}Name`).innerHTML);
 // check for sale
             if (object.saleCD === 0) {
 // add to money
@@ -163,6 +163,17 @@ const makePurchase = () => {
     };
 };
 
+const backToInventory = () => {
+    event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
+    let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML)
+    debugger;
+    let i = 1;
+    while (document.querySelector(`#i${i}`).style.display !== 'none') {i++;};
+    document.querySelector(`#i${i}`).style.display = 'flex';
+    document.querySelector(`#i${i}Name`).innerHTML = object.name;
+    document.querySelector(`#i${i}Date`).innerHTML = dayCount;
+    document.querySelector(`#i${i}BP`).innerHTML = object.buyingPrice;
+};
 // // // // // // // // item selling & inventory mechanics // // // // // // // //
 const checkSelling = () => {
 // get object
@@ -201,5 +212,9 @@ const sellItem = (x,y,object) => {
 for (let i=1; i<=3; i++) {
     generateItem(i, itemSelector());
     document.querySelector(`#b${i}Btn`).addEventListener('click', makePurchase);
-    document.querySelector(`#i${i}Btn`).addEventListener('click', checkSelling);
+    document.querySelector(`#s${i}Btn`).addEventListener('click', backToInventory);
 };
+
+for (let i=1; i<=8; i++) {
+    document.querySelector(`#i${i}Btn`).addEventListener('click', checkSelling);
+}

@@ -30,6 +30,8 @@ const checkShop = () => {
                 changeMoney(object.sellingPrice);
 // remove from shop
                 document.querySelector(`#s${i}`).style.visibility = 'hidden';
+// put object back to available
+                object.toggleInPlay();
             } else {
 // count down to sale
                 object.saleCD -= 1;
@@ -38,12 +40,21 @@ const checkShop = () => {
     };
 };
 
-nextDay = () => {
+const topUpMarket = () => {
+    for (let i=1; i<=3; i++) {
+        if (document.querySelector(`#b${i}`).style.visibility === 'hidden') {
+            generateItem(i, itemSelector());
+        };
+    };
+};
+
+const nextDay = () => {
     dayCount++;
     document.querySelector('#dayCount').innerHTML = dayCount;
     checkShop();
     collectRent();
     checkBankruptcy();
+    topUpMarket();
 };
 
 document.querySelector('#next').addEventListener('click', nextDay);
@@ -57,7 +68,7 @@ class Item {
         this._inPlay = false;
         this._sellingPrice = 0;
         this._imgURL = imgURL;
-        this._saleCD = Math.ceil(Math.random()*3);
+        this._saleCD = Math.ceil(Math.random()*7);
     }
     get name() {
         return this._name;
@@ -98,8 +109,12 @@ const hazelnut = new Item('hazelnut', 100, 'img/hazelnut.jpg');
 const tap = new Item('tap', 500, 'img/tap.jpg');
 const trap = new Item('trap', 900, 'img/trap.png');
 const goggles = new Item('goggles', 300, 'img/goggles.jpg');
+const snap = new Item('snap', 700, 'img/snap.png');
+const headphones = new Item('headphones', 1100, 'img/headphones.png');
+const sardines = new Item('sardines', 400, 'img/sardines.jpg');
+const tooth = new Item('tooth', 1200, 'img/tooth.jpg');
 
-itemsArray.push(goose, gun, mountain, ayogado, hazelnut, tap, trap, goggles);
+itemsArray.push(goose, gun, mountain, ayogado, hazelnut, tap, trap, goggles, snap, headphones, sardines, tooth);
 
 const itemSelector = () => {
     let object;
@@ -131,8 +146,8 @@ const makePurchase = () => {
     } else {
         let i = 1;
         while (document.querySelector(`#i${i}`).style.display !== 'none') {i++;};
-        if (i > 8) {
-            alert('inventory cannot hold more than 8 items');
+        if (i > 5) {
+            alert('inventory cannot hold more than 5 items');
         } else {
 // hide bought card
             event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
@@ -160,7 +175,7 @@ const checkSelling = () => {
         sellItem(x, 1, object);
     } else if (document.querySelector('#s2').style.visibility === 'hidden') {
         sellItem(x, 2, object);
-    } else if (document.querySelector('#s2').style.visibility === 'hidden') {
+    } else if (document.querySelector('#s3').style.visibility === 'hidden') {
         sellItem(x, 3, object);
     } else {
         alert(`You can't sell more than 3 items at a time!`);

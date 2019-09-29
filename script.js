@@ -34,7 +34,9 @@ const checkShop = () => {
                 object.toggleInPlay();
             } else {
 // count down to sale
+                if (Math.floor(Math.random()*object.sellingPrice/object.buyingPrice < 1)) {
                 object.saleCD -= 1;
+                }
             };
         };
     };
@@ -68,7 +70,7 @@ class Item {
         this._inPlay = false;
         this._sellingPrice = 0;
         this._imgURL = imgURL;
-        this._saleCD = Math.ceil(Math.random()*7);
+        this._saleCD = 0;
     }
     get name() {
         return this._name;
@@ -171,7 +173,6 @@ const backToInventory = () => {
     while (document.querySelector(`#i${i}`).style.display !== 'none') {i++;};
     document.querySelector(`#i${i}`).style.display = 'flex';
     document.querySelector(`#i${i}Name`).innerHTML = object.name;
-    document.querySelector(`#i${i}Date`).innerHTML = dayCount;
     document.querySelector(`#i${i}BP`).innerHTML = object.buyingPrice;
 };
 // // // // // // // // item selling & inventory mechanics // // // // // // // //
@@ -205,6 +206,7 @@ const sellItem = (x,y,object) => {
     document.querySelector(`#s${y}Img`).src = object.imgURL;
     document.querySelector(`#s${y}Price`).innerHTML = object.sellingPrice;
     document.querySelector(`#s${y}`).style.visibility = 'visible';
+    object.saleCD = Math.ceil(Math.random()*7);
 };
 
 // // // // // // // // others // // // // // // // //

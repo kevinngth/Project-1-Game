@@ -73,14 +73,13 @@ const trap = new Item('trap', 900, 'img/trap.png');
 const goggles = new Item('goggles', 300, 'img/goggles.jpg');
 
 itemsArray.push(goose, gun, mountain, ayogado, hazelnut, tap, trap, goggles);
-console.log(itemsArray);
 
 const generateItem = () => {
-    document.querySelector('#buy1').style.visibility = "visible";
-    document.querySelector('#item1name').innerHTML = ayogado.name;
-    document.querySelector('#item1img').src = ayogado.imgURL;
-    document.querySelector('#item1price').innerHTML = ayogado.buyingPrice;
-    document.querySelector('#item1buy').value = ayogado.buyingPrice;
+    document.querySelector('#b1').style.visibility = "visible";
+    document.querySelector('#b1Name').innerHTML = ayogado.name;
+    document.querySelector('#b1Img').src = ayogado.imgURL;
+    document.querySelector('#b1Price').innerHTML = ayogado.buyingPrice;
+    document.querySelector('#b1Btn').value = ayogado.buyingPrice;
     ayogado.toggleInPlay();
 };
 
@@ -90,34 +89,38 @@ const makePurchase = () => {
 // hide bought card
     event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
 // show inventory card
-    document.querySelector('#inventory1Display').style.display = 'flex';
+    document.querySelector('#i1').style.display = 'flex';
 // grab hold of the object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
 // deduct the money used
-    console.log(object.buyingPrice)
     changeMoney(-object.buyingPrice);
 // put item into inventory
-    document.querySelector('#inventory1').innerHTML = object.name;
-    document.querySelector('#dateBought1').innerHTML = dayCount;
-    document.querySelector('#buyingPrice1').innerHTML = object.buyingPrice;
+    document.querySelector('#i1Name').innerHTML = object.name;
+    document.querySelector('#i1Date').innerHTML = dayCount;
+    document.querySelector('#i1BP').innerHTML = object.buyingPrice;
 };
 
-document.querySelector('#item1buy').addEventListener('click', makePurchase);
+document.querySelector('#b1Btn').addEventListener('click', makePurchase);
 
 // // // // // // // // item selling & inventory mechanics // // // // // // // //
 
 const sellItem = () => {
 // hide inventory card
-    document.querySelector('#inventory1Display').style.display = 'none';
+    document.querySelector('#i1').style.display = 'none';
 // get object
-
+    let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.innerHTML);
 // get input value
-    console.log(document.querySelector('#item1sellPrice').value);
+    object.sellingPrice = document.querySelector('#i1SP').value;
+// reset field
+    document.querySelector('#i1SP').value = '';
 // show selling card
-    // document.querySelector('')
+    document.querySelector('#s1Name').innerHTML = object.name;
+    document.querySelector('#s1Img').src = object.imgURL;
+    document.querySelector('#s1Price').innerHTML = object.sellingPrice;
+    document.querySelector('#s1').style.visibility = 'visible';
 };
 
-document.querySelector('#item1sell').addEventListener('click', sellItem);
+document.querySelector('#i1Btn').addEventListener('click', sellItem);
 
 // // // // // // // // others // // // // // // // //
 generateItem();

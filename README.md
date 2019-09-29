@@ -48,6 +48,9 @@ Bootstrap was also challenging in the sense that I had to figure out the class a
 * JavaScript
 Trying to get hold of the object and passing values to and fro the object source rather than to pass and create values derived from another source not directly linked to the object source. Overcame the problem by tapping into the node family tree via devTools.
 
+* Too many moving parts
+I had to create a lot of IDs for the elements and halfway though I got confused with which was which so I devised a whole new nomenclature for the IDs.
+
 ### Unsolved problems
 * Using JS DOM without ruining the layout
 I didn't manage to figure out how to generate cards from JS using DOM without ruining the layout preset by my HTML. In the end I worked around it by setting the cards to visibility: hidden and using JS DOM to switch it to visibility: visible when the content in the cards are generated.

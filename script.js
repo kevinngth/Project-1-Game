@@ -19,9 +19,29 @@ const collectRent = () => {
     if (dayCount%7 === 0) {changeMoney(-200)};
 };
 
+const checkShop = () => {
+    for (let i=1; i<=3; i++) {
+        if (document.querySelector(`#s${i}`).style.visibility !== 'hidden') {
+// grab the object
+            let object = eval(document.querySelector(`#s${1}Name`).innerHTML);
+// check for sale
+            if (object.saleCD === 0) {
+// add to money
+                changeMoney(object.sellingPrice);
+// remove from shop
+                document.querySelector(`#s${i}`).style.visibility = 'hidden';
+            } else {
+// count down to sale
+                object.saleCD -= 1;
+            };
+        };
+    };
+};
+
 nextDay = () => {
     dayCount++;
     document.querySelector('#dayCount').innerHTML = dayCount;
+    checkShop();
     collectRent();
     checkBankruptcy();
 };
@@ -37,6 +57,7 @@ class Item {
         this._inPlay = false;
         this._sellingPrice = 0;
         this._imgURL = imgURL;
+        this._saleCD = Math.ceil(Math.random()*3);
     }
     get name() {
         return this._name;
@@ -51,10 +72,16 @@ class Item {
         return this._sellingPrice;
     }
     get imgURL() {
-        return this._imgURL
+        return this._imgURL;
+    }
+    get saleCD() {
+        return this._saleCD;
     }
     set sellingPrice(price) {
         this._sellingPrice = price;
+    }
+    set saleCD(x) {
+        this._saleCD = x;
     }
     toggleInPlay() {
         this._inPlay = !this._inPlay;
@@ -74,13 +101,24 @@ const goggles = new Item('goggles', 300, 'img/goggles.jpg');
 
 itemsArray.push(goose, gun, mountain, ayogado, hazelnut, tap, trap, goggles);
 
-const generateItem = () => {
-    document.querySelector('#b1').style.visibility = "visible";
-    document.querySelector('#b1Name').innerHTML = ayogado.name;
-    document.querySelector('#b1Img').src = ayogado.imgURL;
-    document.querySelector('#b1Price').innerHTML = ayogado.buyingPrice;
-    document.querySelector('#b1Btn').value = ayogado.buyingPrice;
-    ayogado.toggleInPlay();
+const itemSelector = () => {
+    let object;
+    while (object === undefined) {
+        let randomNum = Math.floor(Math.random()*itemsArray.length);
+        if (!(itemsArray[randomNum].inPlay)) {
+            object = itemsArray[randomNum];
+        };
+    };
+    return object;
+};
+
+const generateItem = (position, object) => {
+    document.querySelector(`#b${position}`).style.visibility = "visible";
+    document.querySelector(`#b${position}Name`).innerHTML = object.name;
+    document.querySelector(`#b${position}Img`).src = object.imgURL;
+    document.querySelector(`#b${position}Price`).innerHTML = object.buyingPrice;
+    document.querySelector(`#b${position}Btn`).value = object.buyingPrice;
+    object.toggleInPlay();
 };
 
 // // // // // // // // item buying & inventory mechanics // // // // // // // //
@@ -110,7 +148,7 @@ const sellItem = () => {
 // get object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.innerHTML);
 // get input value
-    object.sellingPrice = document.querySelector('#i1SP').value;
+    object.sellingPrice = parseInt(document.querySelector('#i1SP').value);
 // reset field
     document.querySelector('#i1SP').value = '';
 // show selling card
@@ -123,4 +161,6 @@ const sellItem = () => {
 document.querySelector('#i1Btn').addEventListener('click', sellItem);
 
 // // // // // // // // others // // // // // // // //
-generateItem();
+for (let i=1; i<=3; i++) {
+    generateItem(i, itemSelector());
+}

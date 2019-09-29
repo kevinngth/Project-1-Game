@@ -35,9 +35,18 @@ Game mechanics (MVP)
 * 
 
 ### Technologies
+* HTML 5
 * Bootstrap 4.3.1
+* Vanilla JavaScript
 
 ### Approach
+* I started by drawing a mockup of the interface I wanted.
+* Actualized the drawing using bootstrap on HTML only, yet to utilize JavaScript
+* Interface is 100% completed, I began to substitute the element contents in HTML with JavaScript DOM manipulation.
+* In the start I used fixed values for simulating the moving parts in JavaScript.
+* After all the parts are in place, I began to replace fixed values with variables.
+* Inbetween substituting variables I had to implement conditionals to check if the inputs are valid
+
 ### Installation instructions
 ### Challenges
 * Bootstrap

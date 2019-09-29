@@ -124,43 +124,67 @@ const generateItem = (position, object) => {
 // // // // // // // // item buying & inventory mechanics // // // // // // // //
 
 const makePurchase = () => {
-// hide bought card
-    event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
-// show inventory card
-    document.querySelector('#i1').style.display = 'flex';
 // grab hold of the object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
+    if (object.buyingPrice > money) {
+        alert(`You don't have enough money!`);
+    } else {
+        let i = 1;
+        while (document.querySelector(`#i${i}`).style.display !== 'none') {i++;};
+        if (i > 8) {
+            alert('inventory cannot hold more than 8 items');
+        } else {
+// hide bought card
+            event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
+// show inventory card
+            document.querySelector(`#i${i}`).style.display = 'flex';
 // deduct the money used
-    changeMoney(-object.buyingPrice);
+            changeMoney(-object.buyingPrice);
 // put item into inventory
-    document.querySelector('#i1Name').innerHTML = object.name;
-    document.querySelector('#i1Date').innerHTML = dayCount;
-    document.querySelector('#i1BP').innerHTML = object.buyingPrice;
+            document.querySelector(`#i${i}Name`).innerHTML = object.name;
+            document.querySelector(`#i${i}Date`).innerHTML = dayCount;
+            document.querySelector(`#i${i}BP`).innerHTML = object.buyingPrice;
+        };
+    };
 };
-
-document.querySelector('#b1Btn').addEventListener('click', makePurchase);
 
 // // // // // // // // item selling & inventory mechanics // // // // // // // //
-
-const sellItem = () => {
-// hide inventory card
-    document.querySelector('#i1').style.display = 'none';
+const checkSelling = () => {
 // get object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.innerHTML);
+// get inventorylist number
+    let x =parseInt(event.target.id[1]);
+// check whether the shop is full
+    let i;
+    if (document.querySelector('#s1').style.visibility === 'hidden') {
+        sellItem(x, 1, object);
+    } else if (document.querySelector('#s2').style.visibility === 'hidden') {
+        sellItem(x, 2, object);
+    } else if (document.querySelector('#s2').style.visibility === 'hidden') {
+        sellItem(x, 3, object);
+    } else {
+        alert(`You can't sell more than 3 items at a time!`);
+    };
+}
+
+const sellItem = (x,y,object) => {
+// hide inventory card
+    document.querySelector(`#i${x}`).style.display = 'none';
 // get input value
-    object.sellingPrice = parseInt(document.querySelector('#i1SP').value);
+    object.sellingPrice = parseInt(document.querySelector(`#i${x}SP`).value);
 // reset field
-    document.querySelector('#i1SP').value = '';
+    document.querySelector(`#i${x}SP`).value = '';
 // show selling card
-    document.querySelector('#s1Name').innerHTML = object.name;
-    document.querySelector('#s1Img').src = object.imgURL;
-    document.querySelector('#s1Price').innerHTML = object.sellingPrice;
-    document.querySelector('#s1').style.visibility = 'visible';
+    document.querySelector(`#s${y}Name`).innerHTML = object.name;
+    document.querySelector(`#s${y}Img`).src = object.imgURL;
+    document.querySelector(`#s${y}Price`).innerHTML = object.sellingPrice;
+    document.querySelector(`#s${y}`).style.visibility = 'visible';
 };
 
-document.querySelector('#i1Btn').addEventListener('click', sellItem);
-
 // // // // // // // // others // // // // // // // //
+
 for (let i=1; i<=3; i++) {
     generateItem(i, itemSelector());
-}
+    document.querySelector(`#b${i}Btn`).addEventListener('click', makePurchase);
+    document.querySelector(`#i${i}Btn`).addEventListener('click', checkSelling);
+};

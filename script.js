@@ -12,7 +12,30 @@ const changeMoney = (amount) => {
 }
 
 const checkBankruptcy = () => {
-    if (money < 0) {alert("YOU WENT BANKRUPT!")};
+    if (money < 0) {
+        if (confirm("YOU WENT BANKRUPT! RESTART?")) {
+// store current dayCount as high score
+            document.querySelector('#hiScore').innerHTML = dayCount;
+// reset money
+            money = 0;
+            changeMoney(1000);
+// reset items
+            for (let i=0; i<itemsArray.length; i++) {
+                itemsArray[i].inPlay = false;
+            };
+// reset market & shop
+            for (let i=1; i<=3; i++) {
+                document.querySelector(`#s${i}`).style.visibility = 'hidden';
+                generateItem(i, itemSelector());
+            };
+// reset inventory
+            for (let i=1; i<=8; i++) {
+                document.querySelector(`#i${i}`).style.display = 'none';
+            };
+        } else {
+            console.log('continue');
+        };
+    };
 };
 
 const collectRent = () => {
@@ -89,6 +112,9 @@ class Item {
     }
     get saleCD() {
         return this._saleCD;
+    }
+    set inPlay(x) {
+        this._inPlay = x;
     }
     set sellingPrice(price) {
         this._sellingPrice = price;

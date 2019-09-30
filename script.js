@@ -66,7 +66,7 @@ const checkShop = () => {
                 createToast(`Managed to sell ${object.name} for ${object.sellingPrice}`)
             } else {
 // count down to sale
-                if (Math.floor(Math.random()*object.sellingPrice/object.buyingPrice) < 1) {
+                if (Math.random()*object.sellingPrice/object.buyingPrice < 1) {
                 object.saleCD -= 1;
                 }
             };

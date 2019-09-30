@@ -33,7 +33,7 @@ const checkBankruptcy = () => {
                 document.querySelector(`#i${i}`).style.display = 'none';
             };
         } else {
-            console.log('continue');
+            console.log('Going to crash your browser in 3...2...1...');
         };
     };
 };

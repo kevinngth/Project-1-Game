@@ -2,20 +2,27 @@ console.log("I'm running!");
 
 // // // // // // // // // status panel mechanics // // // // // // // //
 
+let toastCount = 0;
+
 let dayCount = 0;
 
 let money = 1000;
 
+let hiScore = 0
+
 const changeMoney = (amount) => {
     money += amount;
     document.querySelector('#money').innerHTML = money;
+    if (money > hiScore) {
+        hiScore = money;
+        document.querySelector('#hiScore').innerHTML = hiScore;
+    }
 }
 
 const checkBankruptcy = () => {
     if (money < 0) {
         if (confirm("YOU WENT BANKRUPT! RESTART?")) {
-// store current dayCount as high score
-            document.querySelector('#hiScore').innerHTML = dayCount;
+            dayCount = 0;
 // reset money
             money = 0;
             changeMoney(1000);
@@ -39,7 +46,7 @@ const checkBankruptcy = () => {
 };
 
 const collectRent = () => {
-    if (dayCount%7 === 0) {changeMoney(-200)};
+    if (dayCount%7 === 0) {changeMoney(-200); createToast('Deducted 200$ to pay rent!')};
 };
 
 const checkShop = () => {
@@ -55,9 +62,11 @@ const checkShop = () => {
                 document.querySelector(`#s${i}`).style.visibility = 'hidden';
 // put object back to available
                 object.toggleInPlay();
+// toast
+                createToast(`Managed to sell ${object.name} for ${object.sellingPrice}`)
             } else {
 // count down to sale
-                if (Math.floor(Math.random()*object.sellingPrice/object.buyingPrice < 1)) {
+                if (Math.floor(Math.random()*object.sellingPrice/object.buyingPrice) < 1) {
                 object.saleCD -= 1;
                 }
             };
@@ -80,6 +89,7 @@ const nextDay = () => {
     collectRent();
     checkBankruptcy();
     topUpMarket();
+    createToast(randomMessage[Math.floor(Math.random()*randomMessage.length)]);
 };
 
 document.querySelector('#next').addEventListener('click', nextDay);
@@ -246,3 +256,28 @@ for (let i=1; i<=3; i++) {
 for (let i=1; i<=8; i++) {
     document.querySelector(`#i${i}Btn`).addEventListener('click', checkSelling);
 }
+
+$(function(){
+    $('#help').modal();
+})
+
+function createToast(message) {
+    let toast = document.createElement('div');
+    let toastBody = document.createElement('div');
+    toastBody.class = 'toast-body';
+    toastBody.innerHTML = message;
+    toast.append(toastBody);
+    toast.id = `${toastCount}`
+    toast.setAttribute('class', 'toast');
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('data-delay', '8000');
+    document.querySelector('#gameLog').append(toast);
+    $(`#${toastCount}`).toast('show');
+    toastCount++;
+};
+
+randomMessage = [
+    "What a fruitful day today!",
+    "Maybe there's a meteor shower tonight.",
+    "I don't feel like going to work.",
+];

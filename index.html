@@ -2,6 +2,11 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Preset bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- End of preset bootstrap JS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Project 1</title>
 </head>
@@ -10,8 +15,8 @@
     <div class="container">
 <!-- Overall row -->
         <div class="row">
-<!-- Start left side of screen should occupy 8/12 -->
-            <div class="col-lg-8">
+<!-- Start left side of screen should occupy 6/12 -->
+            <div class="col-lg-6">
 <!-- Area where the buying happens -->
                 <h3 class="bg-warning text-dark rounded text-center">Marketplace</h3>
                 <div class="jumbotron">
@@ -81,7 +86,7 @@
                             </div>
                             <img id="s1Img" src="img/placeholder.png" class="card-img-top">
                             <div class="card-body">
-                                <div class="card-text d-flex justify-content-between">
+                                <div class="card-text d-flex justify-content-between align-items-center">
                                     <div>
                                         <span id="s1Price"></span><span>$</span>
                                     </div>
@@ -97,7 +102,7 @@
                             </div>
                             <img id="s2Img" src="" class="card-img-top">
                             <div class="card-body">
-                                <div class="card-text d-flex justify-content-between">
+                                <div class="card-text d-flex justify-content-between align-items-center">
                                     <div>
                                         <span id="s2Price"></span><span>$</span>
                                     </div>
@@ -113,7 +118,7 @@
                             </div>
                             <img id="s3Img" src="" class="card-img-top">
                             <div class="card-body">
-                                <div class="card-text d-flex justify-content-between">
+                                <div class="card-text d-flex justify-content-between align-items-center">
                                     <div>
                                         <span id="s3Price"></span><span>$</span>
                                     </div>
@@ -127,7 +132,7 @@
 <!-- Area where the selling stops -->
             </div>
 <!-- End of the left side of screen -->
-<!-- Start of right side of screen occupying 4/12 -->
+<!-- Start of center of screen occupying 3/12 -->
             <div class="col-lg-4 d-flex align-items-start flex-column">
 <!-- Inventory panel starts -->
                 <div style="width: 100%;">
@@ -141,9 +146,6 @@
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i1SP">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
                                         <div class="input-group-append">
                                             <button id="i1Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
@@ -170,9 +172,6 @@
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i2SP">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <div class="input-group-append">
                                             <button id="i2Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
@@ -197,9 +196,6 @@
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i3SP">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
                                         <div class="input-group-append">
                                             <button id="i3Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
@@ -226,9 +222,6 @@
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i4SP">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <div class="input-group-append">
                                             <button id="i4Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
@@ -253,9 +246,6 @@
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i5SP">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
                                         <div class="input-group-append">
                                             <button id="i5Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
@@ -282,9 +272,6 @@
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i6SP">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <div class="input-group-append">
                                             <button id="i6Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
@@ -310,9 +297,6 @@
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i7SP">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <div class="input-group-append">
                                             <button id="i7Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
                                     </div>
@@ -337,9 +321,6 @@
                                     </button>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Price" id="i8SP">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
                                         <div class="input-group-append">
                                             <button id="i8Btn" class="btn btn-outline-secondary" type="button">Sell</button>
                                         </div>
@@ -386,9 +367,14 @@
                     </div>
                 </div>
             </div>
-<!-- End of the right side of screen -->
+<!-- End of the center of screen -->
+<!-- Start of game log -->
+            <div class="col-lg-2 d-flex align-items-start flex-column" id="gameLog">
+                <h3 class="bg-warning text-dark rounded text-center" style="width: 100%;">Updates</h3>
+            </div>
+<!-- End of game log -->
 <!-- Help -->
-            <div id="help" class="modal fade" tabindex="-1" role="dialog">
+            <div id="help" class="modal fade" tabindex="-1" role="dialog" data-show="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -410,10 +396,6 @@
 <!-- End help -->
         </div>
     </div>
-<!-- Preset bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- My own JS -->
     <script type="text/javascript" src="script.js"></script>
 </body>

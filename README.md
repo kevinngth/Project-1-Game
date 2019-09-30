@@ -33,6 +33,8 @@ Game mechanics (MVP)
 * randomly generated items 
 * clickable game
 
+market price helps or 
+
 Future developments
 * chances of sale depends on randomly generated demand factor
 * demand factor affected by how often item is generated
@@ -50,7 +52,8 @@ Future developments
 * After all the parts are in place, I began to replace fixed values with variables.
 * Inbetween substituting variables I had to implement conditionals to check if the inputs are valid
 * Add in more complicated game mechanics such as removing item from shop panel back to inventory and buy-sell price correlation
-* added the finishing touches for MVP, namely help page and hi-score counter and end condition
+* Added the finishing touches for MVP, namely help page and hi-score counter and end condition
+* Added a new panel to update the player on what happened, using bootstrap toast.
 
 ### Installation instructions
 ### Challenges

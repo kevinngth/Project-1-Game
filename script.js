@@ -207,6 +207,7 @@ const makePurchase = () => {
             document.querySelector(`#i${i}Date`).innerHTML = dayCount;
             document.querySelector(`#i${i}BP`).innerHTML = object.buyingPrice;
             document.querySelector(`#i${i}MP`).innerHTML = object.marketFactor();
+            document.querySelector(`#i${i}SP`).value = object.buyingPrice;
         };
     };
 };

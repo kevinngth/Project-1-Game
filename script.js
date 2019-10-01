@@ -202,8 +202,7 @@ const makePurchase = () => {
 
 const backToInventory = () => {
     event.target.parentElement.parentElement.parentElement.style.visibility = 'hidden';
-    let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML)
-    debugger;
+    let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
     let i = 1;
     while (document.querySelector(`#i${i}`).style.display !== 'none') {i++;};
     document.querySelector(`#i${i}`).style.display = 'flex';
@@ -215,9 +214,8 @@ const checkSelling = () => {
 // get object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.innerHTML);
 // get inventorylist number
-    let x =parseInt(event.target.id[1]);
+    let x = parseInt(event.target.id[1]);
 // check whether the shop is full
-    let i;
     if (document.querySelector('#s1').style.visibility === 'hidden') {
         sellItem(x, 1, object);
     } else if (document.querySelector('#s2').style.visibility === 'hidden') {
@@ -230,18 +228,20 @@ const checkSelling = () => {
 }
 
 const sellItem = (x,y,object) => {
+    if (typeof document.querySelector(`#i${x}SP`).value === 'number') {
 // hide inventory card
-    document.querySelector(`#i${x}`).style.display = 'none';
+        document.querySelector(`#i${x}`).style.display = 'none';
 // get input value
-    object.sellingPrice = parseInt(document.querySelector(`#i${x}SP`).value);
+        object.sellingPrice = parseInt(document.querySelector(`#i${x}SP`).value);
 // reset field
-    document.querySelector(`#i${x}SP`).value = '';
+        document.querySelector(`#i${x}SP`).value = '';
 // show selling card
-    document.querySelector(`#s${y}Name`).innerHTML = object.name;
-    document.querySelector(`#s${y}Img`).src = object.imgURL;
-    document.querySelector(`#s${y}Price`).innerHTML = object.sellingPrice;
-    document.querySelector(`#s${y}`).style.visibility = 'visible';
-    object.saleCD = Math.ceil(Math.random()*7);
+        document.querySelector(`#s${y}Name`).innerHTML = object.name;
+        document.querySelector(`#s${y}Img`).src = object.imgURL;
+        document.querySelector(`#s${y}Price`).innerHTML = object.sellingPrice;
+        document.querySelector(`#s${y}`).style.visibility = 'visible';
+        object.saleCD = Math.ceil(Math.random()*7);
+    };
 };
 
 // // // // // // // // updates panel mechanics // // // // // // // //

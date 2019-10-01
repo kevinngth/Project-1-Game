@@ -2,8 +2,6 @@ console.log("I'm running!");
 
 // // // // // // // // // status panel mechanics // // // // // // // //
 
-let toastCount = 0;
-
 let dayCount = 0;
 
 let money = 1000;
@@ -17,6 +15,7 @@ const changeMoney = (amount) => {
         hiScore = money;
         document.querySelector('#hiScore').innerHTML = hiScore;
     }
+    checkBankruptcy();
 }
 
 const checkBankruptcy = () => {
@@ -89,7 +88,7 @@ const nextDay = () => {
     collectRent();
     checkBankruptcy();
     topUpMarket();
-    createToast(randomMessage[Math.floor(Math.random()*randomMessage.length)]);
+    chanceEvent();
 };
 
 document.querySelector('#next').addEventListener('click', nextDay);
@@ -245,21 +244,9 @@ const sellItem = (x,y,object) => {
     object.saleCD = Math.ceil(Math.random()*7);
 };
 
-// // // // // // // // others // // // // // // // //
+// // // // // // // // updates panel mechanics // // // // // // // //
 
-for (let i=1; i<=3; i++) {
-    generateItem(i, itemSelector());
-    document.querySelector(`#b${i}Btn`).addEventListener('click', makePurchase);
-    document.querySelector(`#s${i}Btn`).addEventListener('click', backToInventory);
-};
-
-for (let i=1; i<=8; i++) {
-    document.querySelector(`#i${i}Btn`).addEventListener('click', checkSelling);
-}
-
-$(function(){
-    $('#help').modal();
-})
+let toastCount = 0;
 
 function createToast(message) {
     let toast = document.createElement('div');
@@ -276,8 +263,59 @@ function createToast(message) {
     toastCount++;
 };
 
-randomMessage = [
-    "What a fruitful day today!",
-    "Maybe there's a meteor shower tonight.",
-    "I don't feel like going to work.",
+// // // // // // // // chance // // // // // // // //
+
+chanceCards = [
 ];
+
+class Chance {
+    constructor(words, effect) {
+        this._effect = effect;
+        this._message = words + Math.abs(effect) + `$`;
+    }
+    get message() {
+        return this._message;
+    }
+    get effect() {
+        return this._effect;
+    }
+};
+
+const moneyFall = new Chance(`Money fell from the sky! Collect `, 300);
+chanceCards.push(moneyFall);
+const hospital = new Chance(`Your pet iguana was admitted to the hospital. Pay `, -200);
+chanceCards.push(hospital);
+const shopDown = new Chance(`Shop was destroyed in a meteor shower! For repairs pay `, -400);
+chanceCards.push(shopDown);
+const elephant = new Chance(`The town elephant got injured. Contribute `, -100);
+chanceCards.push(elephant);
+const phoneDrop = new Chance(`Dropped your new iPhone! Buy another one for `, -800);
+chanceCards.push(phoneDrop);
+const mayor = new Chance(`Town mayor decides to award you 'Best Pedestrian'. Receive `, 600);
+chanceCards.push(mayor);
+
+const chanceEvent = () => {
+    if (Math.random() < .3) {
+        let selectedCard = chanceCards[Math.floor(Math.random()*chanceCards.length)];
+// toast
+        createToast(selectedCard.message);
+// change money
+        changeMoney(selectedCard.effect);
+    };
+};
+
+// // // // // // // // others // // // // // // // //
+
+for (let i=1; i<=3; i++) {
+    generateItem(i, itemSelector());
+    document.querySelector(`#b${i}Btn`).addEventListener('click', makePurchase);
+    document.querySelector(`#s${i}Btn`).addEventListener('click', backToInventory);
+};
+
+for (let i=1; i<=8; i++) {
+    document.querySelector(`#i${i}Btn`).addEventListener('click', checkSelling);
+}
+
+$(function(){
+    $('#help').modal();
+})

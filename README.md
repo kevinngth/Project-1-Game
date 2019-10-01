@@ -9,40 +9,18 @@ Create a turn-based game
 * Using DOM to achieve interactivity
 
 ### Idea
-
-* turn-based trading game
-* start off with some cash
-* able to select what to buy from a stack of 3 or 4 items
-* after you buy the item it's added to your inventory
-* you are able to click on the item to check the price
-* after each turn the price of certain things will change
-* you can also wait or skip a few turns but if you skip too many turns while holding on to the item in your inventory you may 'spoil', 'expire' or 'lose' the item
-* objective is to earn money/ make profit, as much as possible
-* shop has rent, every 15th of the month
-* day by day, prices change
-* 15sec interval for each day
-* 3 / 4 days random event that reduce or bonus money e.g. monopoly
-* button for next day
-* version 1 without mechanics e.g. 1 item either sell or don't
-* version 2 able to set price for item
-* version 3 price is dependent on demand
-
-Game mechanics (MVP)
-* global value for cash
-* global value for money
-* randomly generated items 
-* clickable game
-
-market price helps or 
+* Turn-based trading game where play is supposed to buy items and sell them to make a profit. High score is determined by maximum amount of money the player held. Random events will happen and affect player's money. 
 
 Future developments
-* chances of sale depends on randomly generated demand factor
-* demand factor affected by how often item is generated
+* Chances of sale depends on randomly generated market price factor
+* After each turn the price of certain things will change
+* Day progresses with real time
+* Prices of items change day by day
 
 ### Technologies
 * HTML 5
 * Bootstrap 4.3.1
-* Vanilla JavaScript
+* JavaScript
 
 ### Approach
 * I started by drawing a mockup of the interface I wanted.
@@ -54,8 +32,11 @@ Future developments
 * Add in more complicated game mechanics such as removing item from shop panel back to inventory and buy-sell price correlation
 * Added the finishing touches for MVP, namely help page and hi-score counter and end condition
 * Added a new panel to update the player on what happened, using bootstrap toast.
+* Added additional 'chance' aspect to game.
 
 ### Installation instructions
+* none
+
 ### Challenges
 * Bootstrap
 Using bootstrap, a lot of the styles are predetermined and altering one element's class leads to affect another's eventual positioning. Initially wanted to have a masonry styled layout but had difficulty trying to decentralise the alignment. Subsequently realised that instead of 4 different cards, I can have 2 cards in 1 column and another 2 cards in the other column, then change the display for the element that I wanted to be off-center.
@@ -72,4 +53,6 @@ I had to create a lot of IDs for the elements and halfway though I got confused 
 * Using JS DOM without ruining the layout
 I didn't manage to figure out how to generate cards from JS using DOM without ruining the layout preset by my HTML. In the end I worked around it by setting the cards to visibility: hidden and using JS DOM to switch it to visibility: visible when the content in the cards are generated.
 
-That being said, I would like to improve on the way the inventory list is being added on to. 
+* That being said, I would like to improve on the way the inventory list is being added on to.
+
+* responsive design not achieved

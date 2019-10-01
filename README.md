@@ -14,7 +14,7 @@ Create a turn-based game
 Future developments
 * Chances of sale depends on randomly generated market price factor
 * After each turn the price of certain things will change
-* Day progresses with real time
+* Day progresses with timer instead of button
 * Prices of items change day by day
 
 ### Technologies

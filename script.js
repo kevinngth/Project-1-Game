@@ -88,7 +88,7 @@ const nextDay = () => {
     collectRent();
     checkBankruptcy();
     topUpMarket();
-    if (dayCount > 7) {chanceEvent()};
+    if (dayCount > 5) {chanceEvent()};
 };
 
 document.querySelector('#next').addEventListener('click', nextDay);
@@ -103,6 +103,7 @@ class Item {
         this._sellingPrice = 0;
         this._imgURL = imgURL;
         this._saleCD = 0;
+        this._marketPrice = buyingPrice;
     }
     get name() {
         return this._name;
@@ -122,6 +123,9 @@ class Item {
     get saleCD() {
         return this._saleCD;
     }
+    get marketPrice() {
+        return this._marketPrice;
+    }
     set inPlay(x) {
         this._inPlay = x;
     }
@@ -130,6 +134,10 @@ class Item {
     }
     set saleCD(x) {
         this._saleCD = x;
+    }
+    marketFactor() {
+        this._marketPrice = this._buyingPrice + Math.round((Math.random()-Math.random())*1000/100/2)*100;
+        return this._marketPrice;
     }
     toggleInPlay() {
         this._inPlay = !this._inPlay;

@@ -4,7 +4,7 @@ console.log("I'm running!");
 
 let dayCount = 0;
 
-let money = 1000;
+let money = 2000;
 
 let hiScore = 0
 
@@ -88,7 +88,7 @@ const nextDay = () => {
     collectRent();
     checkBankruptcy();
     topUpMarket();
-    chanceEvent();
+    if (dayCount > 7) {chanceEvent()};
 };
 
 document.querySelector('#next').addEventListener('click', nextDay);
@@ -228,7 +228,7 @@ const checkSelling = () => {
 }
 
 const sellItem = (x,y,object) => {
-    if (typeof document.querySelector(`#i${x}SP`).value === 'number') {
+    if (document.querySelector(`#i${x}SP`).value !== '') {
 // hide inventory card
         document.querySelector(`#i${x}`).style.display = 'none';
 // get input value
@@ -243,7 +243,6 @@ const sellItem = (x,y,object) => {
         object.saleCD = Math.ceil(Math.random()*7);
     };
 };
-
 // // // // // // // // updates panel mechanics // // // // // // // //
 
 let toastCount = 0;

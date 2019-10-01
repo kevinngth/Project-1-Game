@@ -39,6 +39,7 @@ const checkBankruptcy = () => {
                 document.querySelector(`#i${i}`).style.display = 'none';
             };
         } else {
+            location.reload();
             console.log('Going to crash your browser in 3...2...1...');
         };
     };
@@ -65,7 +66,7 @@ const checkShop = () => {
                 createToast(`Managed to sell ${object.name} for ${object.sellingPrice}`)
             } else {
 // count down to sale
-                if (Math.random()*object.sellingPrice/object.buyingPrice < 1) {
+                if (Math.random()*object.sellingPrice/object.marketPrice < 1) {
                 object.saleCD -= 1;
                 }
             };
@@ -88,6 +89,7 @@ const nextDay = () => {
     collectRent();
     checkBankruptcy();
     topUpMarket();
+    marketChange();
     if (dayCount > 5) {chanceEvent()};
 };
 
@@ -136,7 +138,7 @@ class Item {
         this._saleCD = x;
     }
     marketFactor() {
-        this._marketPrice = this._buyingPrice + Math.round((Math.random()-Math.random())*1000/100/2)*100;
+        this._marketPrice = this._buyingPrice + Math.round((Math.random()-Math.random())*this._buyingPrice/100/2)*100;
         return this._marketPrice;
     }
     toggleInPlay() {
@@ -204,6 +206,7 @@ const makePurchase = () => {
             document.querySelector(`#i${i}Name`).innerHTML = object.name;
             document.querySelector(`#i${i}Date`).innerHTML = dayCount;
             document.querySelector(`#i${i}BP`).innerHTML = object.buyingPrice;
+            document.querySelector(`#i${i}MP`).innerHTML = object.marketFactor();
         };
     };
 };
@@ -217,7 +220,9 @@ const backToInventory = () => {
     document.querySelector(`#i${i}Name`).innerHTML = object.name;
     document.querySelector(`#i${i}BP`).innerHTML = object.buyingPrice;
 };
+
 // // // // // // // // item selling & inventory mechanics // // // // // // // //
+
 const checkSelling = () => {
 // get object
     let object = eval(event.target.parentElement.parentElement.parentElement.firstElementChild.innerHTML);
@@ -251,6 +256,7 @@ const sellItem = (x,y,object) => {
         object.saleCD = Math.ceil(Math.random()*7);
     };
 };
+
 // // // // // // // // updates panel mechanics // // // // // // // //
 
 let toastCount = 0;
@@ -310,6 +316,17 @@ const chanceEvent = () => {
         changeMoney(selectedCard.effect);
     };
 };
+
+// // // // // // // // market factors // // // // // // // //
+
+const marketChange = () => {
+    for (let i=1; i<=8; i++) {
+        if (document.querySelector(`#i${i}`).style.display !== 'none') {
+        let object = eval(document.querySelector(`#i${i}Name`).innerHTML);
+        document.querySelector(`#i${i}MP`).innerHTML = object.marketFactor();
+        }
+    }
+}
 
 // // // // // // // // others // // // // // // // //
 

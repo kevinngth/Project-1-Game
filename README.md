@@ -9,10 +9,9 @@ Create a turn-based game
 * Using DOM to achieve interactivity
 
 ### Idea
-* Turn-based trading game where play is supposed to buy items and sell them to make a profit. High score is determined by maximum amount of money the player held. Random events will happen and affect player's money. 
+* Turn-based trading game where play is supposed to buy items and sell them to make a profit. High score is determined by maximum amount of money the player held. Random events will happen and affect player's money. Chances of sale depends on randomly generated market price factor.
 
 Future developments
-* Chances of sale depends on randomly generated market price factor
 * After each turn the price of certain things will change
 * Day progresses with timer instead of button
 * Prices of items change day by day
@@ -32,7 +31,7 @@ Future developments
 * Add in more complicated game mechanics such as removing item from shop panel back to inventory and buy-sell price correlation
 * Added the finishing touches for MVP, namely help page and hi-score counter and end condition
 * Added a new panel to update the player on what happened, using bootstrap toast.
-* Added additional 'chance' aspect to game.
+* Added additional 'chance' and 'market price' aspect to game.
 
 ### Installation instructions
 * none

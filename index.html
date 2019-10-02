@@ -16,7 +16,7 @@
 <!-- Overall row -->
         <div class="row">
 <!-- Start left side of screen should occupy 6/12 -->
-            <div class="col-lg-6">
+            <div class="col-lg-8">
 <!-- Area where the buying happens -->
                 <h3 class="bg-warning text-dark rounded text-center">Marketplace</h3>
                 <div class="jumbotron">
@@ -356,9 +356,9 @@
                         <h4 class="d-flex justify-content-between align-items-center">
                             <div>
                                 <span>Day: </span>
-                                <span id="dayCount">0</span>
+                                <span id="dayCount">1</span>
                             </div>
-                            <button class="btn btn-success btn-lg" id="next">Next</button>
+                            <button type="button" class="btn btn-success btn-lg" id="next" data-toggle="modal" data-target="#daySummary">Next Day</button>
                         </h4>
                         <h4 class="d-flex justify-content-between">
                             <span>Money:</span>
@@ -377,9 +377,11 @@
             </div>
 <!-- End of the center of screen -->
 <!-- Start of game log -->
+<!--
             <div class="col-lg-2 d-flex align-items-start flex-column overflow-auto" id="gameLog" style="max-height: 700px">
                 <h3 class="bg-warning text-dark rounded text-center" style="width: 100%;">Updates</h3>
             </div>
+-->
 <!-- End of game log -->
 <!-- Help -->
             <div id="help" class="modal fade" tabindex="-1" role="dialog" data-show="true">
@@ -402,6 +404,20 @@
                 </div>
             </div>
 <!-- End help -->
+<!-- Start summary -->
+            <div id="daySummary" class="modal fade" tabindex="-1" role="dialog" data-show="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Day <span id='sumDay'></span> Summary</h5>
+                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        </div>
+                        <div id='sumBody'class="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- End summary -->
         </div>
     </div>
 <!-- My own JS -->

@@ -2,7 +2,7 @@ console.log("I'm running!");
 
 // // // // // // // // // status panel mechanics // // // // // // // //
 
-let dayCount = 0;
+let dayCount = 1;
 
 let money = 2000;
 
@@ -17,6 +17,12 @@ const changeMoney = (amount) => {
     }
     checkBankruptcy();
 }
+
+const addSummary = (message) => {
+    let newDiv = document.createElement('p');
+    newDiv.innerHTML = message;
+    document.querySelector('#sumBody').append(newDiv);
+};
 
 const checkBankruptcy = () => {
     if (money < 0) {
@@ -46,7 +52,7 @@ const checkBankruptcy = () => {
 };
 
 const collectRent = () => {
-    if (dayCount%7 === 0) {changeMoney(-200); createToast('Deducted 200$ to pay rent!')};
+    if (dayCount%7 === 0) {changeMoney(-200); addSummary('Deducted 200$ to pay rent!')};
 };
 
 const checkShop = () => {
@@ -63,7 +69,7 @@ const checkShop = () => {
 // put object back to available
                 object.toggleInPlay();
 // toast
-                createToast(`Managed to sell ${object.name} for ${object.sellingPrice}`)
+                addSummary(`Managed to sell ${object.name} for ${object.sellingPrice}`)
             } else {
 // count down to sale
                 if (Math.random()*object.sellingPrice/object.marketPrice < 1) {
@@ -83,6 +89,12 @@ const topUpMarket = () => {
 };
 
 const nextDay = () => {
+    let child = document.querySelector('#sumBody').lastElementChild;
+    while (child) {
+        document.querySelector('#sumBody').removeChild(child);
+        child = document.querySelector('#sumBody').lastElementChild;
+    };
+    document.querySelector('#sumDay').innerHTML = dayCount;
     dayCount++;
     document.querySelector('#dayCount').innerHTML = dayCount;
     checkShop();
@@ -90,7 +102,7 @@ const nextDay = () => {
     checkBankruptcy();
     topUpMarket();
     marketChange();
-    if (dayCount > 5) {chanceEvent()};
+    if (dayCount > 3) {chanceEvent()};
 };
 
 document.querySelector('#next').addEventListener('click', nextDay);
@@ -259,7 +271,7 @@ const sellItem = (x,y,object) => {
 };
 
 // // // // // // // // updates panel mechanics // // // // // // // //
-
+/*
 let toastCount = 0;
 
 function createToast(message) {
@@ -276,7 +288,7 @@ function createToast(message) {
     $(`#${toastCount}`).toast('show');
     toastCount++;
 };
-
+*/
 // // // // // // // // chance // // // // // // // //
 
 chanceCards = [
@@ -312,7 +324,7 @@ const chanceEvent = () => {
     if (Math.random() < .3) {
         let selectedCard = chanceCards[Math.floor(Math.random()*chanceCards.length)];
 // toast
-        createToast(selectedCard.message);
+        addSummary(selectedCard.message);
 // change money
         changeMoney(selectedCard.effect);
     };
@@ -325,6 +337,7 @@ const marketChange = () => {
         if (document.querySelector(`#i${i}`).style.display !== 'none') {
         let object = eval(document.querySelector(`#i${i}Name`).innerHTML);
         document.querySelector(`#i${i}MP`).innerHTML = object.marketFactor();
+        addSummary(`Market price of ${object.name} is now ${object.marketPrice}`);
         }
     }
 }

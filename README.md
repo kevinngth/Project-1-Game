@@ -32,6 +32,7 @@ Future developments
 * Added the finishing touches for MVP, namely help page and hi-score counter and end condition
 * Added a new panel to update the player on what happened, using bootstrap toast.
 * Added additional 'chance' and 'market price' aspect to game.
+* Took out updates panel and toasts, added a new modal page for end of day summary
 
 ### Installation instructions
 * none

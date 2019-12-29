@@ -57,26 +57,7 @@ const collectRent = () => {
     if (dayCount%7 === 0) {changeMoney(-200); addSummary('Deducted 200$ to pay rent!')};
 };
 
-const checkShop = (items) => {
-
-    const items = [];
-
-    for( var i=0; i<items.length; i++){
-    // go through each item
-
-        // if we sell the item today
-        if( item.daysToSell === 0){
-            // add money to the user account
-
-            addMoney( item.price )
-        }else{
-            // else take some days away til it sells
-            item.daysToSell = items.daysToSell - randomDaysToSell(item);
-        }
-
-    }
-
-    return items;
+const checkShop = () => {
 
     for (let i=1; i<=3; i++) {
         if (document.querySelector(`#s${i}`).style.visibility !== 'hidden') {
